@@ -11,8 +11,14 @@
     "test": "jest"
   },
   "dependencies": {
+    "@types/styled-system": "^5.1.22",
+    "axios": "^1.7.7",
+    "mobx": "^6.13.3",
+    "mobx-react-lite": "^4.0.7",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "styled-components": "^6.1.13",
+    "styled-system": "^5.1.5"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",
