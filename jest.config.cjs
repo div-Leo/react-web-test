@@ -7,10 +7,11 @@ const { compilerOptions } = require("./tsconfig");
 module.exports = {
   roots: ["<rootDir>"],
   preset: "ts-jest",
-  testEnvironment: "jsdom",
+  testEnvironment: "jest-environment-jsdom",
   modulePaths: [compilerOptions.baseUrl],
   moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths ?? {}),
   transform: {
+    "^.+\\.tsx?$": "ts-jest",
     ".+\\.(css|less|sass|scss|png|jpg|gif|ttf|woff|woff2|svg)$":
       "jest-transform-stub",
   },
