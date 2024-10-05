@@ -9,8 +9,15 @@ export const dangerousFunction = async () => {
   return { message: `Success at ${new Date().toISOString()}` };
 };
 
+
+let runningPromise: Promise<unknown> | undefined;
+
 export const noParallelCalls = async <T extends () => Promise<unknown>>(
   dangerousCallBack: T
 ) => {
-  return await dangerousCallBack();
+  if (!runningPromise) {
+    runningPromise = dangerousCallBack()
+      .finally(() => runningPromise = undefined)
+  }
+  return runningPromise
 };
