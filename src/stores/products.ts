@@ -1,6 +1,7 @@
 import { makeAutoObservable, runInAction } from "mobx";
 import axios from 'axios';
 import debounce from 'lodash/debounce'
+import { addRetries } from "../functions/addRetries";
 
 const BASE_URL = 'https://dummyjson.com'
 
@@ -51,7 +52,7 @@ class ProductSearchStore {
     }
   }
 
-  private debouncedSearch = debounce(this.searchProducts, 300);
+  private debouncedSearch = debounce(addRetries(this.searchProducts), 300);
 }
 
 export const productSearchStore = new ProductSearchStore();

@@ -36,6 +36,7 @@ const ProductList = ({products}: { products: ProductType[]}) => {
     <Box mx={4}>
       {products?.map((product) =>
         <Product
+          key={product.id}
           title={product.title}
           thumbnail={product.thumbnail}
           description={product.description}
