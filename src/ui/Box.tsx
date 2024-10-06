@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import shouldForwardProp from '@styled-system/should-forward-prop';
 import {
   background,
   BackgroundProps,
@@ -23,6 +24,8 @@ export interface BoxProps
     BackgroundProps,
     TextAlignProps {}
 
-export const Box = styled.div<BoxProps>`
+export const Box = styled('div').withConfig({
+  shouldForwardProp: shouldForwardProp,
+})<BoxProps>`
   ${compose(space, layout, position, flexbox, background, textAlign)}
 `;

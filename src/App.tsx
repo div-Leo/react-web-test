@@ -26,7 +26,7 @@ const App = observer(() => {
           {isLoading && <InlineSpinner size='large' />}
         </Box>
       </Box>
-        <ProductList products={products}/>
+      <ProductList products={products}/>
     </Box>
   );
 })

@@ -1,5 +1,6 @@
 import { ComponentPropsWithoutRef } from 'react';
 import styled from 'styled-components';
+import shouldForwardProp from '@styled-system/should-forward-prop';
 import {
   compose,
   fontFamily,
@@ -41,7 +42,9 @@ const variantStyles = variant({
   },
 });
 
-export const Text = styled.span<TextProps>`
+export const Text = styled('span').withConfig({
+  shouldForwardProp: shouldForwardProp,
+}) <TextProps>`
   font-size: 1rem;
   font-family: Avenir;
   line-height: 1.4;

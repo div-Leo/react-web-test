@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import shouldForwardProp from '@styled-system/should-forward-prop';
 import {
   borderRadius,
   BorderRadiusProps,
@@ -44,7 +45,9 @@ const levelVariant = variant({
   },
 });
 
-export const Card = styled.div<CardProps>`
+export const Card = styled('div').withConfig({
+  shouldForwardProp: shouldForwardProp,
+}) <CardProps>`
   overflow: auto;
   box-sizing: border-box;
   background-color: ${SemanticColors.background.primary};

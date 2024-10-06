@@ -25,7 +25,7 @@ class ProductSearchStore {
   error: string | null = null;
 
   constructor() {
-    makeAutoObservable(this );
+    makeAutoObservable(this);
     this.searchProducts()
   }
 
@@ -35,8 +35,10 @@ class ProductSearchStore {
   }
 
   private searchProducts = async (): Promise<void> => {
-    this.isLoading = true;
-    this.error = null;
+    runInAction(() => {
+      this.isLoading = true;
+      this.error = null;
+    })
 
     try {
       const response = await axios.get<ProductResponse>(`${BASE_URL}/products/search?q=${this.query}`);
