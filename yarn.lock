@@ -1514,6 +1514,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/lodash@npm:^4.17.10":
+  version: 4.17.10
+  resolution: "@types/lodash@npm:4.17.10"
+  checksum: 4600f2f25270c8fee6953e363d318149a5f0f1b1bb820aa2f42d7ada6e4f7de31848bb5ffc2c687b40bd73aa982167bdd6e6d8d456e72abe0c660ec77d1fa7e9
+  languageName: node
+  linkType: hard
+
 "@types/node@npm:*":
   version: 22.4.2
   resolution: "@types/node@npm:22.4.2"
@@ -5548,6 +5555,7 @@ __metadata:
     "@testing-library/jest-dom": ^6.5.0
     "@testing-library/react": ^16.0.0
     "@types/jest": ^29.5.12
+    "@types/lodash": ^4.17.10
     "@types/react": ^18.3.3
     "@types/react-dom": ^18.3.0
     "@types/styled-system": ^5.1.22
@@ -5560,6 +5568,7 @@ __metadata:
     jest: ^29.7.0
     jest-environment-jsdom: ^29.7.0
     jest-transform-stub: ^2.0.0
+    lodash: ^4.17.21
     mobx: ^6.13.3
     mobx-react-lite: ^4.0.7
     react: ^18.3.1

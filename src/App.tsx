@@ -1,17 +1,17 @@
-import { useState } from "react";
+import { observer } from "mobx-react-lite"
+
 import "./App.css";
 
+import { productSearchStore } from "./stores/products";
+
 import { Box, SearchBox, InlineSpinner } from "./ui";
-import { useProducts } from './hooks/useProducts';
+import { Product } from "./components/product"
 
-import { Product } from './components/product'
-
-import type { Product as ProductType } from "./hooks/useProducts";
+import type { Product as ProductType } from "./stores/products";
 
 
-function App() {  
-  const [query, setQuery] = useState('')
-  const { products, isLoading } = useProducts(query)
+const App = observer(() => {  
+  const { query, products, isLoading, setQuery } = productSearchStore;
 
   return (
     <Box width='70vw'>
@@ -29,9 +29,9 @@ function App() {
         <ProductList products={products}/>
     </Box>
   );
-}
+})
 
-function ProductList({products}: { products: ProductType[]}) {
+const ProductList = ({products}: { products: ProductType[]}) => {
   return (
     <Box mx={4}>
       {products?.map((product) =>

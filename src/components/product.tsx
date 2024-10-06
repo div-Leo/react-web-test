@@ -1,6 +1,6 @@
 import { Card, Box, Text, Image } from "../ui";
 
-import type { Product } from "../hooks/useProducts";
+import type { Product } from "../stores/products";
 
 export function Product ({ thumbnail, title, brand, description, price }: Partial<Product>) {
   return (
