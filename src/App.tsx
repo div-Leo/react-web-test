@@ -7,9 +7,6 @@ import { productSearchStore } from "./stores/products";
 import { Box, SearchBox, InlineSpinner } from "./ui";
 import { Product } from "./components/product"
 
-import type { Product as ProductType } from "./stores/products";
-
-
 const App = observer(() => {  
   const { query, products, isLoading, setQuery } = productSearchStore;
 
@@ -27,26 +24,20 @@ const App = observer(() => {
           {isLoading && <InlineSpinner size='large' />}
         </Box>
       </Box>
-      <ProductList products={products}/>
+      <Box mx={4}>
+        {products?.map((product) =>
+          <Product
+            key={product.id}
+            title={product.title}
+            thumbnail={product.thumbnail}
+            description={product.description}
+            price={product.price}
+            brand={product.brand}
+          />
+        )}
+      </Box>
     </Box>
   );
 })
-
-const ProductList = ({products}: { products: ProductType[]}) => {
-  return (
-    <Box mx={4}>
-      {products?.map((product) =>
-        <Product
-          key={product.id}
-          title={product.title}
-          thumbnail={product.thumbnail}
-          description={product.description}
-          price={product.price}
-          brand={product.brand}
-        />
-      )}
-    </Box>
-  )
-}
 
 export default App;
