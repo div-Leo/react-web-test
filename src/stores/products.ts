@@ -41,18 +41,28 @@ class ProductSearchStore {
     })
 
     try {
-      const response = await axios.get<ProductResponse>(`${BASE_URL}/products/search?q=${this.query}`);
+      const response = await axios.get<ProductResponse>(this.getSearchURL());
       runInAction(() => {
         this.products = response.data.products;
-        this.isLoading = false;
       });
     } catch (error) {
       runInAction(() => {
         this.error = error instanceof Error ? error.message : 'An unknown error occurred';
+      });
+    } finally {
+      runInAction(() => {
         this.isLoading = false;
       });
     }
   }
+
+  private getSearchURL = () => {
+    const url = new URL('/products/search', BASE_URL);
+    if (this.query.length > 0) {
+      url.searchParams.append('q', this.query);
+    }
+    return url.toString();
+  };
 
   private debouncedSearch = debounce(addRetries(this.searchProducts), 300);
 }
