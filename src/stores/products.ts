@@ -48,6 +48,7 @@ class ProductSearchStore {
     } catch (error) {
       runInAction(() => {
         this.error = error instanceof Error ? error.message : 'An unknown error occurred';
+        console.error(this.error)
       });
     } finally {
       runInAction(() => {

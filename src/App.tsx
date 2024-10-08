@@ -4,11 +4,11 @@ import "./App.css";
 
 import { productSearchStore } from "./stores/products";
 
-import { Box, SearchBox, InlineSpinner } from "./ui";
+import { Box, SearchBox, InlineSpinner, Text } from "./ui";
 import { Product } from "./components/product"
 
 const App = observer(() => {  
-  const { query, products, isLoading, setQuery } = productSearchStore;
+  const { query, products, isLoading, error, setQuery } = productSearchStore;
 
   return (
     <Box width='70vw'>
@@ -25,7 +25,9 @@ const App = observer(() => {
         </Box>
       </Box>
       <Box mx={4}>
-        {products?.map((product) =>
+        {error ?
+          <Text fontSize='large'> Something bad happend! Retry later... </Text>
+         : products?.map((product) =>
           <Product
             key={product.id}
             title={product.title}
