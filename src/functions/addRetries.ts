@@ -17,7 +17,7 @@ export function addRetries<TResponse, TArgs extends unknown[]>(callbackToRetry: 
       }
     }
     throw newError;
-    // This if statement makes the function potentially return undefined, makeing the type less strict
+    // This if statement makes the function potentially return undefined, making the type less strict
     // if (newError) { 
     //   throw newError;
     // }

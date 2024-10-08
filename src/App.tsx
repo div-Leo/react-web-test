@@ -15,6 +15,7 @@ const App = observer(() => {
 
   return (
     <Box width='70vw'>
+      <h1>Product store</h1>
       <Box mb={3} position='sticky' display='flex' top={0} width='100%' background='white' p={4}>
         <SearchBox 
           placeholder="Search for products..." 
