@@ -96,7 +96,7 @@ const InnerInput: FC<BaseInputProps> = styled.input.attrs({ type: 'search' }) <B
     ${p => (p.disabled ? disabledStyles : undefined)}
 `;
 
-export const SearchBox: React.FC<InputProps> = ({ 
+export const SearchBox = ({ 
   value: propsValue = '',
   setValue: setPropsValue, 
   placeholder, 
